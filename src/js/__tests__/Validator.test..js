@@ -17,7 +17,6 @@ describe('Test Validator Falsy', () => {
     expect(Validator.validateUsername('1ab1ra232aa')).toBeFalsy();
   });
 
-
   test('5test end _', () => {
     expect(Validator.validateUsername('abra23aa_')).toBeFalsy();
   });
@@ -35,14 +34,18 @@ describe('Test Validator Falsy', () => {
   });
 
   test('9test rus', () => {
-    expect(Validator.validateUsername('abrыы23aa')).toBeFalsy();
+    expect(Validator.validateUsername('abrы23aa')).toBeFalsy();
   });
 
-  test('10test rus all', () => {
-    expect(Validator.validateUsername('вы123ыва-чч')).toBeFalsy();
+  test('10test rus home', () => {
+    expect(Validator.validateUsername('фsdjl11s2z')).toBeFalsy();
   });
 
-  test('11test all number', () => {
+  test('11test rus end', () => {
+    expect(Validator.validateUsername('sdSl11s2Rч')).toBeFalsy();
+  });
+
+  test('12test all number', () => {
     expect(Validator.validateUsername('232341')).toBeFalsy();
   });
 });
@@ -66,5 +69,13 @@ describe('Test Validator Truthy', () => {
 
   test('5test without -_', () => {
     expect(Validator.validateUsername('SscKadSDC')).toBeTruthy();
+  });
+
+  test('6test two words', () => {
+    expect(Validator.validateUsername('he')).toBeTruthy();
+  });
+
+  test('7test home&end words ', () => {
+    expect(Validator.validateUsername('h11-231_32_4-e')).toBeTruthy();
   });
 });
